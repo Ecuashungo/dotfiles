@@ -31,7 +31,7 @@ Contains local changes for each machine, which are not tracked using git.
 
 
 ## Roadmap
--[] Include MacOS dotfiles
--[] configuration dotfiles (like sleep settings, etc)
--[] backup scripts for data
--[] setup script for main data folder (private / work_1 / hobby_1 / work_2)
+- [ ] Include MacOS dotfiles
+- [ ] configuration dotfiles (like sleep settings, etc)
+- [ ] backup scripts for data
+- [ ] setup script for main data folder (private / work_1 / hobby_1 / work_2)
