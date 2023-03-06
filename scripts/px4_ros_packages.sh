@@ -10,6 +10,10 @@ wget https://raw.githubusercontent.com/PX4/PX4-Autopilot/main/Tools/setup/ubuntu
 chmod +x ubuntu.sh
 rm -f ubuntu.sh
 
+# ZeroTier
+curl -s 'https://raw.githubusercontent.com/zerotier/ZeroTierOne/master/doc/contact%40zerotier.com.gpg' | gpg --import && \
+if z=$(curl -s 'https://install.zerotier.com/' | gpg); then echo "$z" | sudo bash; fi
+
 # QGroundControl
 sudo apt install libfuse2
 
