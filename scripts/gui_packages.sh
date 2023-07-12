@@ -8,6 +8,8 @@
 sudo apt-get install -y speedcrunch
 sudo snap install slack --classic
 sudo apt install -y vlc
+sudo apt install -y flameshot
+
 
 # chromium
 sudo apt-get install -y libxssl libappindicator1 libindicator7

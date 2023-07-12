@@ -10,7 +10,8 @@ export SOFTWARE_INSTALL=~/software
 ### Essentials
 sudo apt install -y curl
 sudo apt install -y vim
-
+sudo apt install -y git
+sudo apt -y install python-is-python3
 
 ### ZSH and Oh My Zsh
 sudo apt install -y zsh
@@ -70,6 +71,24 @@ sed -i '$ a autoload -U compinit && compinit -u' ~/.zshrc
 
 sed -i 's@^ZSH_THEME=.*$@ZSH_THEME="powerlevel10k/powerlevel10k"@g' ~/.zshrc
 sed -i 's@plugins=(git)@plugins=(git zsh-autosuggestions zsh-syntax-highlighting autojump extract)@g' ~/.zshrc
+
+# useful command line tools
+sudo apt install -y htop
+sudo apt install -y bat  # nicer cat
+sudo apt install -y plocate # nice search tool in commandline. plocate is much faster
+
+
+# Network tools
+sudo apt install -y nmap
+
+# make bat alias
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
+
+# Miniconda installation
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh  # Execute miniconda installation scripo
 
 
 # make zsh the default shell
