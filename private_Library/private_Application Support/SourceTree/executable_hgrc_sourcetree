@@ -1,0 +1,34 @@
+[extensions]
+hgext.shelve=
+mercurial-credential-manager=/Applications/Sourcetree.app/Contents/Resources/mercurial_local/hgext/mercurial_credential_manager.py
+hgext.mq=
+rebase=
+transplant=
+hgext.extdiff=
+progress=
+hgext.hgflow=/Applications/Sourcetree.app/Contents/Resources/mercurial_local/hgext/hgflow.py
+hgext.schemes=
+hgext.gpg=
+hgext.fetch=
+[diff]
+git=True
+[merge-tools]
+sourcetreemerge.gui=False
+sourcetreebulkmerge.gui=False
+sourcetreemerge.binary=False
+sourcetreebulkmerge.executable=/Applications/Sourcetree.app/Contents/Resources/hg-merge.sh
+sourcetreemerge.args=$local $other -ancestor $base -merge $output
+sourcetreemerge.checkconflicts=True
+sourcetreemerge.premerge=True
+sourcetreebulkmerge.premerge=False
+sourcetreemerge.executable=/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh
+sourcetreebulkmerge.binary=True
+[ui]
+ignore=/Users/claudio/.hgignore_global
+commitsubrepos=no
+username=Claudio Fritsche <claudio@onesecdelivery.com>
+[extdiff]
+cmd.sourcetreediff=opendiff
+opts.sourcetreediff=
+[committemplate]
+desc=/Users/claudio/.stCommitMsg
