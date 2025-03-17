@@ -22,7 +22,7 @@
 {{- else if eq .chezmoi.os "darwin" -}}
 {{    $install_gui = "yes" -}}
 {{- else -}}
-{{-   $install_gui = promptString "System (yes or no)" -}}
+{{-   $install_gui = promptString "Install GUI? (yes or no)" -}}
 {{- end -}}
 
 data:
