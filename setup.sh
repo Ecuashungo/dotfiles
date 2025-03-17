@@ -142,6 +142,11 @@ function initialize_os_linux() {
 function initialize_os_env() {
     local ostype
     ostype="$(get_os_type)"
+    
+    # print debug message if debug is enabled
+    if [ "${DOTFILES_DEBUG:-}" ]; then
+        echo "Debug: OS type: ${ostype}"
+    fi
 
     if [ "${ostype}" == "Darwin" ]; then
         initialize_os_macos
@@ -176,9 +181,10 @@ function run_chezmoi() {
     # the `age` command requires a tty, but there is no tty in the github actions.
     # Therefore, it is currnetly difficult to decrypt the files encrypted with `age` in this workflow.
     # I decided to temporarily remove the encrypted target files from chezmoi's control.
-    if is_ci_or_not_tty; then
-        find "$(${chezmoi_cmd} source-path)" -type f -name "encrypted_*" -exec rm -fv {} +
-    fi
+    # TODO: add encryption with age to the dotfiles.
+    #if is_ci_or_not_tty; then
+    #    find "$(${chezmoi_cmd} source-path)" -type f -name "encrypted_*" -exec rm -fv {} +
+    #fi
 
     # Add to PATH for installing the necessary binary files under `$HOME/.local/bin`.
     export PATH="${PATH}:${HOME}/.local/bin"
