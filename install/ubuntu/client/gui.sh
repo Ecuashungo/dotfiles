@@ -13,8 +13,13 @@ readonly PACKAGES=(
 )
 
 readonly PACKAGES_SNAP=(
-    code
+    thefuck
 )
+
+function install_code() {
+    wget -O "$HOME/Downloads/code.deb" "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-arm64"
+    sudo apt install "$HOME/Downloads/code.deb"
+}
 
 function install_cursor() {
     # Ensure libfuse2 is installed (required for AppImage)    
@@ -68,6 +73,7 @@ function install_gui() {
     sudo apt install -y "${PACKAGES[@]}"
     sudo snap install --classic "${PACKAGES_SNAP[@]}"
     install_cursor
+    install_code
 }
 
 function uninstall_gui() {
