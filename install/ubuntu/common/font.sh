@@ -30,6 +30,13 @@ function install_nerd_font_hack_mono() {
     install_font "${font_url}" "${NERD_FONT_HACK_MONO}"
 }
 
+function install_nerd_fonts_old() {
+    install_font "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf" "MesloLGS NF Regular.ttf"
+    install_font "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf" "MesloLGS NF Bold.ttf"
+    install_font "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf" "MesloLGS NF Italic.ttf"
+    install_font "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf" "MesloLGS NF Bold Italic.ttf"
+}
+
 function uninstall_nerd_font_roboto_mono() {
     rm -fv "${FONT_DIR}/${NERD_FONT_ROBOTO_MONO}"
 }
@@ -41,6 +48,7 @@ function uninstall_nerd_font_hack_mono() {
 function main() {
     install_nerd_font_roboto_mono
     install_nerd_font_hack_mono
+    install_nerd_fonts_old
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
