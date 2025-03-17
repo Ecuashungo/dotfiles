@@ -13,7 +13,7 @@ readonly PACKAGES=(
 )
 
 readonly PACKAGES_SNAP=(
-    thefuck
+    #thefuck
 )
 
 function install_code() {
