@@ -18,8 +18,6 @@ function install_oh_my_zsh() {
     git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
     git clone https://github.com/fdellwing/zsh-bat.git $ZSH_CUSTOM/plugins/zsh-bat
 
-    # make zsh the default shell
-    chsh -s /bin/zsh
 }
 
 function uninstall_oh_my_zsh() {
