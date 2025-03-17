@@ -6,6 +6,8 @@ if [ "${DOTFILES_DEBUG:-}" ]; then
     set -x
 fi
 
+readonly ZSH="${HOME%/}/.oh-my-zsh"
+readonly ZSH_CUSTOM="${ZSH%/}/custom"
 
 function install_oh_my_zsh() {
     sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended --keep-zshrc
