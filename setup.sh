@@ -139,6 +139,22 @@ function initialize_os_linux() {
     :
 }
 
+function setup_zsh() {
+    local ostype
+    ostype="$(get_os_type)"
+
+    if [ "${ostype}" == "Linux" ]; then
+        change_shell_to_zsh
+    elif [ "${ostype}" == "Darwin" ]; then
+        echo "Zsh is already default shell on macOS"
+    fi
+}
+
+function change_shell_to_zsh() {
+    # change shell to zsh in the beginning and make sure to change it for the correct user
+    sudo -k chsh -s $(which zsh) "$USER"  # -k forces the password prompt
+}
+
 function initialize_os_env() {
     local ostype
     ostype="$(get_os_type)"
@@ -255,6 +271,8 @@ function main() {
     initialize_dotfiles
 
     # restart_shell # Disabled because the at_exit function does not work properly.
+    
+    setup_zsh
 }
 
 main
