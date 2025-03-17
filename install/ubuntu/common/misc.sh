@@ -14,7 +14,6 @@ readonly PACKAGES=(
     gpg
     jq  # JSON Parser
     htop
-    thefuck
     #shellcheck
     unzip
     vim

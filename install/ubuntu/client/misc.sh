@@ -11,13 +11,18 @@ readonly PACKAGES=(
     gparted
 )
 
+readonly PACKAGES_SNAP=(
+    thefuck
+)
+
 function install_misc() {
     sudo apt-get install -y "${PACKAGES[@]}"
+    sudo snap install "${PACKAGES_SNAP[@]}"
 }
 
 function uninstall_misc() {
     sudo apt-get remove -y "${PACKAGES[@]}"
-}
+    sudo snap remove "${PACKAGES_SNAP[@]}"
 
 function main() {
     install_misc
