@@ -15,6 +15,11 @@ With debug:
 DOTFILES_DEBUG=1 bash -c "$(wget -qO - https://raw.githubusercontent.com/Ecuashungo/dotfiles/refs/heads/feature/advanced/setup.sh)"
 ```
 
+With debug and different branch:
+
+```bash
+DOTFILES_DEBUG=1 BRANCH_NAME=feature/advanced bash -c "$(wget -qO - https://raw.githubusercontent.com/Ecuashungo/dotfiles/refs/heads/feature/advanced/setup.sh)"
+```
 
 ## MacOS
 ```bash
