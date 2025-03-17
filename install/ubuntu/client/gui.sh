@@ -71,14 +71,14 @@ EOF
 
 function install_gui() {
     sudo apt install -y "${PACKAGES[@]}"
-    sudo snap install --classic "${PACKAGES_SNAP[@]}"
+    #sudo snap install --classic "${PACKAGES_SNAP[@]}"
     install_cursor
     install_code
 }
 
 function uninstall_gui() {
     sudo apt remove -y "${PACKAGES[@]}"
-    sudo snap remove "${PACKAGES_SNAP[@]}"
+    #sudo snap remove "${PACKAGES_SNAP[@]}"
 }
 
 function main() {
