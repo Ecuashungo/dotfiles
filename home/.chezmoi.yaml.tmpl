@@ -15,9 +15,20 @@
 {{-   $system = promptString "System (client or server)" -}}
 {{- end -}}
 
+{{- $install_gui := "" -}}
+{{- if hasKey . "install_gui" -}}
+{{-   $install_gui = .install_gui -}}
+{{- /* Set client to the MacOS default install_gui */ -}}
+{{- else if eq .chezmoi.os "darwin" -}}
+{{    $install_gui = "yes" -}}
+{{- else -}}
+{{-   $install_gui = promptString "System (yes or no)" -}}
+{{- end -}}
+
 data:
     name: Claudio Fritsche
     email: {{ $email | quote }}
     system: {{ $system | quote }}
+    install_gui: {{ $install_gui | quote }}
 
 # TODO: age encryption

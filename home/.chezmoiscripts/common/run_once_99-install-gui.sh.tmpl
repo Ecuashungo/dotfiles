@@ -1,0 +1,17 @@
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.idLike "debian" -}}
+{{     if eq .system "client" -}}
+{{      if eq .install_gui "yes" -}}
+{{          include "../install/ubuntu/client/gui.sh" }}
+{{      end -}}
+{{     end -}}
+{{   else -}}
+       echo "Invalid linux distribution: {{ .chezmoi.osRelease.id }}"
+{{   end -}}
+{{ else if eq .chezmoi.os "darwin" -}}
+#   include "../install/macos/common/font.sh" 
+echo "MACOS detected: {{ .chezmoi.os }}"
+{{ else -}}
+    echo "Invalid OS: {{ .chezmoi.os }}" >&2
+    exit 1
+{{ end -}}
