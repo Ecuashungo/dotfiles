@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "linux" -}}
+{{     include "../install/common/oh-my-zsh.sh" }}
+{{ else }}
+       echo "For {{ .chezmoi.os }} we don't do anything yet"
+{{ end -}}
