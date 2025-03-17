@@ -23,6 +23,7 @@ function install_misc() {
 function uninstall_misc() {
     sudo apt-get remove -y "${PACKAGES[@]}"
     sudo snap remove "${PACKAGES_SNAP[@]}"
+}
 
 function main() {
     install_misc
