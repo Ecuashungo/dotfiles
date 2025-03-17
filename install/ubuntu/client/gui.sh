@@ -73,6 +73,7 @@ function install_gui() {
 function uninstall_gui() {
     sudo apt remove -y "${PACKAGES[@]}"
     sudo snap remove "${PACKAGES_SNAP[@]}"
+}
 
 function main() {
     install_gui
