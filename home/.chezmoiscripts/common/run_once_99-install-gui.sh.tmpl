@@ -1,9 +1,15 @@
 {{ if eq .chezmoi.os "linux" -}}
 {{   if eq .chezmoi.osRelease.idLike "debian" -}}
 {{     if eq .system "client" -}}
-{{      if eq .install_gui "yes" -}}
-{{          include "../install/ubuntu/client/gui.sh" }}
-{{      end -}}
+{{       if eq .install_gui "yes" -}}
+{{         if eq .chezmoi.arch "arm64" (or (eq .chezmoi.arch "aarch64")) -}}
+{{           include "../install/ubuntu/client/gui.sh" }}
+{{         else if eq .chezmoi.arch "amd64" (or (eq .chezmoi.arch "x86_64")) -}}
+{{           include "../install/ubuntu/client/gui_amd64.sh" }}
+{{         else -}}
+             echo "Unsupported architecture: {{ .chezmoi.arch }}"
+{{         end -}}
+{{       end -}}
 {{     end -}}
 {{   else -}}
        echo "Invalid linux distribution: {{ .chezmoi.osRelease.id }}"
