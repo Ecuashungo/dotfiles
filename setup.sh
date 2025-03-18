@@ -136,7 +136,13 @@ function initialize_os_macos() {
 }
 
 function initialize_os_linux() {
-    :
+    # install curl and git if it is not installed
+    if ! command -v curl &>/dev/null; then
+        sudo apt-get install -y curl
+    fi
+    if ! command -v git &>/dev/null; then
+        sudo apt-get install -y git
+    fi
 }
 
 function setup_zsh() {
