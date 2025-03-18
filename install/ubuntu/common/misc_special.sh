@@ -17,6 +17,15 @@ function get_arch() {
     echo "$arch"
 }
 
+function install_git() {
+    sudo add-apt-repository ppa:git-core/ppa -y
+    sudo apt update && sudo apt install -y git
+}
+
+function uninstall_git() {
+    sudo apt-get remove -y git
+}
+
 function install_git_delta() {
     local arch
     arch=$(get_arch)
@@ -47,9 +56,8 @@ function install_pyenv() {
     curl https://pyenv.run | bash
 }
 
-
-
 function main() {
+    install_git
     install_git_delta
     install_thefuck
 }

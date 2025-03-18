@@ -12,7 +12,6 @@ readonly PACKAGES=(
     cmake
     build-essential
     gpg
-    git
     jq  # JSON Parser
     htop
     #shellcheck
