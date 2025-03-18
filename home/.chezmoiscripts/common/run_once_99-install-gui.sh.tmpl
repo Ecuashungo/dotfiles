@@ -2,9 +2,9 @@
 {{   if eq .chezmoi.osRelease.idLike "debian" -}}
 {{     if eq .system "client" -}}
 {{       if eq .install_gui "yes" -}}
-{{         if eq .chezmoi.arch "arm64" (or (eq .chezmoi.arch "aarch64")) -}}
+{{         if or (eq .chezmoi.arch "arm64") (eq .chezmoi.arch "aarch64") -}}
 {{           include "../install/ubuntu/client/gui.sh" }}
-{{         else if eq .chezmoi.arch "amd64" (or (eq .chezmoi.arch "x86_64")) -}}
+{{         else if or (eq .chezmoi.arch "amd64") (eq .chezmoi.arch "x86_64") -}}
 {{           include "../install/ubuntu/client/gui_amd64.sh" }}
 {{         else -}}
              echo "Unsupported architecture: {{ .chezmoi.arch }}"
