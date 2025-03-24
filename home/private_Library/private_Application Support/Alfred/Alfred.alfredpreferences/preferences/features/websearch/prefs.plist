@@ -71,18 +71,27 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>3B533564-2246-4263-96B0-9A9451888721</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nasvideo</string>
+			<key>text</key>
+			<string>Synology Video</string>
+			<key>url</key>
+			<string>https://nas-cf.noodlefish-iguana.ts.net:5551/?launchApp=SYNO.SDS.VideoStation.AppInstance</string>
+		</dict>
 		<key>7F4BAAA8-ABF3-4EDD-9AEE-D872140AA5C5</key>
 		<dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyword</key>
-			<string>nasdrive</string>
+			<string>quickdrive</string>
 			<key>text</key>
-			<string>Synology Drive</string>
+			<string>Quick Synology Drive</string>
 			<key>url</key>
 			<string>https://adventurenas.de5.quickconnect.to/?launchApp=SYNO.SDS.Drive.Application</string>
-			<key>utf8</key>
-			<true/>
 		</dict>
 		<key>8719B67B-0ECB-4AD2-9F29-74C5A17238FA</key>
 		<dict>
@@ -102,26 +111,22 @@
 			<key>enabled</key>
 			<true/>
 			<key>keyword</key>
-			<string>nasphoto</string>
+			<string>quickphoto</string>
 			<key>text</key>
-			<string>Synology Photos</string>
+			<string>Quick Synology Photos</string>
 			<key>url</key>
-			<string>https://adventurenas.de5.quickconnect.to/?launchApp=SYNO.Foto.AppInstance&amp;SynoToken=lhqNGca6y6qgA</string>
-			<key>utf8</key>
-			<true/>
+			<string>https://adventurenas.de5.quickconnect.to/?launchApp=SYNO.Foto.AppInstance</string>
 		</dict>
 		<key>9D123FC7-645A-48D3-9BF9-12314A6DA179</key>
 		<dict>
 			<key>enabled</key>
 			<true/>
 			<key>keyword</key>
-			<string>nasdsm</string>
+			<string>quickdsm</string>
 			<key>text</key>
-			<string>Synology DSM</string>
+			<string>Synology DSM QC</string>
 			<key>url</key>
 			<string>https://adventurenas.de5.quickconnect.to</string>
-			<key>utf8</key>
-			<true/>
 		</dict>
 		<key>B341701C-BA74-423A-9A6B-766EA31811A1</key>
 		<dict>
@@ -143,13 +148,11 @@
 			<key>enabled</key>
 			<true/>
 			<key>keyword</key>
-			<string>nasvideo</string>
+			<string>quickvideo</string>
 			<key>text</key>
-			<string>Synology Video</string>
+			<string>Quick Synology Video</string>
 			<key>url</key>
-			<string>https://adventurenas.de5.quickconnect.to/?launchApp=SYNO.SDS.VideoStation.AppInstance&amp;SynoToken=lhqNGca6y6qgA</string>
-			<key>utf8</key>
-			<true/>
+			<string>https://adventurenas.de5.quickconnect.to/?launchApp=SYNO.SDS.VideoStation.AppInstance</string>
 		</dict>
 		<key>C680E3F0-FDEF-47CE-A7BC-F4AED5E83561</key>
 		<dict>
@@ -180,6 +183,28 @@
 			<string>http://gen.lib.rus.ec/search.php?req={query}&amp;lg_topic=libgen&amp;open=0&amp;view=simple&amp;res=25&amp;phrase=1&amp;column=def</string>
 			<key>utf8</key>
 			<true/>
+		</dict>
+		<key>CF93E151-1DA9-4E23-984F-160CB44F8A7B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nasdsm</string>
+			<key>text</key>
+			<string>DSM Synology</string>
+			<key>url</key>
+			<string>https://nas-cf.noodlefish-iguana.ts.net:5551/#/signin</string>
+		</dict>
+		<key>D2069A82-5440-4305-9837-8C1862D1AA8D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nasphotos</string>
+			<key>text</key>
+			<string>Synology Photos</string>
+			<key>url</key>
+			<string>https://nas-cf.noodlefish-iguana.ts.net:5551/?launchApp=SYNO.Foto.AppInstance</string>
 		</dict>
 		<key>DBE4F050-8F9F-4AA6-B81C-B627B343C0BE</key>
 		<dict>
@@ -237,6 +262,28 @@
 			<key>utf8</key>
 			<true/>
 		</dict>
+		<key>E3D31884-D580-444D-88EC-19E8D8F53AAB</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>nasdrive</string>
+			<key>text</key>
+			<string>Synology Drive</string>
+			<key>url</key>
+			<string>https://nas-cf.noodlefish-iguana.ts.net:5551/?launchApp=SYNO.SDS.Drive.Application</string>
+		</dict>
+		<key>E4D79E82-69A9-49D1-98A5-CEA287342EAF</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>jelly</string>
+			<key>text</key>
+			<string>Jellyfin</string>
+			<key>url</key>
+			<string>http://nas-cf.noodlefish-iguana.ts.net:8096/web/#/home.html</string>
+		</dict>
 		<key>E7CBBBF0-FDB2-46B5-AAB5-519011941DE0</key>
 		<dict>
 			<key>enabled</key>
@@ -249,6 +296,17 @@
 			<string>https://dict.leo.org/spanisch-deutsch/{query}</string>
 			<key>utf8</key>
 			<true/>
+		</dict>
+		<key>E856B3F1-ABAE-48B7-A7BB-F102C6336B6D</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>daily</string>
+			<key>text</key>
+			<string>Obsidian Daily</string>
+			<key>url</key>
+			<string>obsidian://advanced-uri?vault=Main&amp;daily=true&amp;mode=append</string>
 		</dict>
 		<key>EB227F73-FAC5-44AE-B8CA-A7C33DB6587F</key>
 		<dict>
