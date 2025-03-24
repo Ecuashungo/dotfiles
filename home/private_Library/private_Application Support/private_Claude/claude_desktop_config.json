@@ -1,0 +1,11 @@
+{
+  "globalShortcut": "Ctrl+Z",
+  "mcpServers": {
+    "mcp-installer": {
+      "command": "npx",
+      "args": [
+        "@anaisbetts/mcp-installer"
+      ]
+    }
+  }
+}
