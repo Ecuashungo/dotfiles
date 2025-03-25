@@ -1,0 +1,13 @@
+{
+    "atomKeymap.promptV3Features": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "git.autofetch": true,
+    "editor.fontFamily": "Menlo for Powerline, Monaco, 'Courier New', monospace",
+    "files.autoSave": "onFocusChange",
+    "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+    "yaml.schemas": {
+        "file:///Users/claudio/.cursor/extensions/atlassian.atlascode-3.4.17/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    "redhat.telemetry.enabled": false
+}
