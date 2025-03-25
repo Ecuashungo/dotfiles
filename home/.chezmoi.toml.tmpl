@@ -25,10 +25,15 @@
 {{-   $install_gui = promptString "Install GUI? (yes or no)" -}}
 {{- end -}}
 
-data:
-    name: Claudio Fritsche
-    email: {{ $email | quote }}
-    system: {{ $system | quote }}
-    install_gui: {{ $install_gui | quote }}
+[data]
+    name = "Claudio Fritsche"
+    email = {{ $email | quote }}
+    system = {{ $system | quote }}
+    install_gui = {{ $install_gui | quote }}
+
+[[textconv]]
+    pattern = "**/*.plist"
+    command = "plutil"
+    args = ["-convert", "xml1", "-o", "-", "-"]
 
 # TODO: age encryption
