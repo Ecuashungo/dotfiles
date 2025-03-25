@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 {{ if eq .chezmoi.os "linux" -}}
 {{     include "../install/common/oh-my-zsh.sh" }}
 {{ else }}
