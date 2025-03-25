@@ -1,0 +1,2 @@
+# Use the textconversion for plist files
+*.plist diff=plist
