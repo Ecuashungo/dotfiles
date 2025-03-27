@@ -17,6 +17,38 @@ function get_arch() {
     echo "$arch"
 }
 
+function is_git_installed() {
+    if command -v git &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function is_git_delta_installed() {
+    if command -v delta &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function is_thefuck_installed() {
+    if command -v thefuck &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function is_pyenv_installed() {
+    if command -v pyenv &> /dev/null || [ -d "$HOME/.pyenv" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 function install_git() {
     sudo add-apt-repository ppa:git-core/ppa -y
     sudo apt update && sudo apt install -y git
@@ -57,9 +89,26 @@ function install_pyenv() {
 }
 
 function main() {
-    install_git
-    install_git_delta
-    install_thefuck
+    if is_git_installed; then
+        echo "Git is already installed"
+    else
+        echo "Installing Git..."
+        install_git
+    fi
+    
+    if is_git_delta_installed; then
+        echo "Git Delta is already installed"
+    else
+        echo "Installing Git Delta..."
+        install_git_delta
+    fi
+    
+    if is_thefuck_installed; then
+        echo "Thefuck is already installed"
+    else
+        echo "Installing Thefuck..."
+        install_thefuck
+    fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

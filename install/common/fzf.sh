@@ -9,6 +9,14 @@ fi
 readonly FZF_DIR="${HOME%/}/.fzf"
 readonly FZF_URL="https://github.com/junegunn/fzf.git"
 
+function is_fzf_installed() {
+    if command -v fzf &> /dev/null && [ -d "${FZF_DIR}" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 function clone_fzf() {
     if [ ! -d "${FZF_DIR}" ]; then
         git clone "${FZF_URL}" "${FZF_DIR}"
@@ -29,8 +37,13 @@ function uninstall_fzf() {
 }
 
 function main() {
-    clone_fzf
-    install_fzf
+    if is_fzf_installed; then
+        echo "fzf is already installed"
+    else
+        echo "Installing fzf..."
+        clone_fzf
+        install_fzf
+    fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

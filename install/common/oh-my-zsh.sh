@@ -9,6 +9,14 @@ fi
 readonly ZSH="${HOME%/}/.oh-my-zsh"
 readonly ZSH_CUSTOM="${ZSH%/}/custom"
 
+function is_oh_my_zsh_installed() {
+    if [ -d "$ZSH" ] && [ -f "$ZSH/oh-my-zsh.sh" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 function install_oh_my_zsh() {
     sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" "" --unattended --keep-zshrc
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -26,7 +34,12 @@ function uninstall_oh_my_zsh() {
 }
 
 function main() {
-    install_oh_my_zsh
+    if is_oh_my_zsh_installed; then
+        echo "Oh My Zsh is already installed"
+    else
+        echo "Installing Oh My Zsh..."
+        install_oh_my_zsh
+    fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

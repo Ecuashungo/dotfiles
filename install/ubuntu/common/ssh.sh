@@ -10,6 +10,11 @@ readonly PACKAGES=(
     openssh-client
 )
 
+function is_openssh_installed() {
+    dpkg -s openssh-client &> /dev/null
+}
+
+
 function install_openssh() {
     sudo apt-get install -y "${PACKAGES[@]}"
 }
@@ -19,7 +24,13 @@ function uninstall_openssh() {
 }
 
 function main() {
-    install_openssh
+
+    if is_openssh_installed; then
+        echo "OpenSSH client is already installed"
+    else
+        echo "Installing OpenSSH client..."
+        install_openssh
+    fi
 }
 
 if [ ${#BASH_SOURCE[@]} = 1 ]; then

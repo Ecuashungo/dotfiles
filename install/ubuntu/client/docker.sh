@@ -13,6 +13,14 @@ readonly PACKAGES=(
     docker-compose-plugin
 )
 
+function is_docker_installed() {
+    if command -v docker &> /dev/null && systemctl is-active --quiet docker; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 function uninstall_old_docker() {
     local packages=(
         "docker"
@@ -38,7 +46,7 @@ function setup_repository() {
         gnupg \
         lsb-release
 
-    # Add Docker’s official GPG key:
+    # Add Docker's official GPG key:
     sudo mkdir -p /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
@@ -62,9 +70,14 @@ function uninstall_docker_engine() {
 }
 
 function main() {
-    uninstall_old_docker
-    setup_repository
-    install_docker_engine
+    if is_docker_installed; then
+        echo "Docker is already installed"
+    else
+        echo "Installing Docker..."
+        uninstall_old_docker
+        setup_repository
+        install_docker_engine
+    fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

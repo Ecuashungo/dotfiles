@@ -13,6 +13,39 @@ readonly PACKAGES_GUI_AMD64=(
     libfuse2  # Required for AppImage
 )
 
+function are_gui_packages_installed() {
+    local missing_packages=false
+    
+    for package in "${PACKAGES_GUI_AMD64[@]}"; do
+        if ! dpkg -s "$package" &> /dev/null; then
+            missing_packages=true
+            break
+        fi
+    done
+    
+    if [ "$missing_packages" = false ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function is_vscode_installed() {
+    if command -v code &> /dev/null; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+function is_cursor_installed() {
+    if [ -f "$HOME/Applications/cursor.AppImage" ] && [ -f "$HOME/.local/share/applications/cursor.desktop" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
 function install_code() {
     # Using snap for VSCode on x86/amd64 architecture
     echo "Installing Visual Studio Code via snap..."
@@ -66,9 +99,42 @@ EOF
 }
 
 function install_gui() {
-    sudo apt install -y "${PACKAGES_GUI_AMD64[@]}"
-    install_cursor
-    install_code
+    local packages_to_install=false
+    local install_vscode=false
+    local install_cursor_app=false
+    
+    if ! are_gui_packages_installed; then
+        packages_to_install=true
+    fi
+    
+    if ! is_vscode_installed; then
+        install_vscode=true
+    fi
+    
+    if ! is_cursor_installed; then
+        install_cursor_app=true
+    fi
+    
+    if [ "$packages_to_install" = true ]; then
+        echo "Installing GUI packages..."
+        sudo apt install -y "${PACKAGES_GUI_AMD64[@]}"
+    else
+        echo "GUI packages are already installed"
+    fi
+    
+    if [ "$install_cursor_app" = true ]; then
+        echo "Installing Cursor..."
+        install_cursor
+    else
+        echo "Cursor is already installed"
+    fi
+    
+    if [ "$install_vscode" = true ]; then
+        echo "Installing VS Code..."
+        install_code
+    else
+        echo "VS Code is already installed"
+    fi
 }
 
 function uninstall_gui() {
