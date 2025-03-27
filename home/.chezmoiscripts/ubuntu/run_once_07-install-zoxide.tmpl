@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+{{ if eq .chezmoi.os "linux" -}}
+{{   if eq .chezmoi.osRelease.idLike "debian" -}}
+{{     if eq .system "client" -}}
+{{       include "../install/ubuntu/client/zoxide.sh" }}
+{{     end -}}
+{{   end -}}
+{{ end -}}
