@@ -79,11 +79,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git
+{{ if eq .chezmoi.os "darwin" -}}
 	macos
+	autojump
+{{ else -}}
+    zoxide
+{{ end -}}
 	zsh-autosuggestions
 	dirhistory
 	zsh-syntax-highlighting
-	autojump
 	extract
 	you-should-use
 	zsh-bat	
@@ -126,18 +130,11 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Autojump
-[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
-
 # The Fuck
 eval $(thefuck --alias)
 
-# Fix ssh problems: load all keys dynamically in the beginning
-eval "$(ssh-agent -s)" > /dev/null
-for key in ~/.ssh/id_*; do
-    [[ -f "$key" && ! "$key" =~ \.pub$ ]] && ssh-add --apple-use-keychain "$key" > /dev/null
-done
-
+{{ if eq .chezmoi.os "darwin" -}}
+#####################   MAC OS   #####################
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -153,8 +150,23 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Autojump
+[ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/claudio/.lmstudio/bin"
+
+# Fix ssh problems: load all keys dynamically in the beginning
+eval "$(ssh-agent -s)" > /dev/null
+for key in ~/.ssh/id_*; do
+    [[ -f "$key" && ! "$key" =~ \.pub$ ]] && ssh-add --apple-use-keychain "$key" > /dev/null
+done
+
+{{ else if eq .chezmoi.os "linux" -}}
+#####################   LINUX   #####################
 # Zoxide
 eval "$(zoxide init --cmd j zsh)"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/claudio/.lmstudio/bin"
+
+{{ end -}}
+
+
