@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# ~/.local/bin/diff-kicad - wrapper for lukaj and kicad-cli
+
+set -euo pipefail
+
+TEMP1=$(mktemp)
+TEMP2=$(mktemp)
+
+generate_svg() {
+  INPUT=$1
+  OUTPUT=$2
+  kicad-cli pcb export svg --exclude-drawing-sheet --page-size-mode 2 \
+    -l "B.Cu,F.Cu,B.Silkscreen,F.Silkscreen,Edge.Cuts,B.Mask,F.Mask" \
+    -o $OUTPUT $INPUT
+}
+
+generate_svg $1 $TEMP1
+generate_svg $2 $TEMP2
+
+~/.cargo/bin/lukaj $TEMP1 $TEMP2
+
+rm $TEMP1 $TEMP2

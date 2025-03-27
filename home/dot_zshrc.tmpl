@@ -161,6 +161,10 @@ for key in ~/.ssh/id_*; do
     [[ -f "$key" && ! "$key" =~ \.pub$ ]] && ssh-add --apple-use-keychain "$key" > /dev/null
 done
 
+# Rust Cargo binaries
+export PATH="$HOME/.cargo/bin:$PATH"
+
+
 {{ else if eq .chezmoi.os "linux" -}}
 #####################   LINUX   #####################
 # Zoxide
