@@ -153,6 +153,8 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Zoxide
+eval "$(zoxide init --cmd j zsh)"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/claudio/.lmstudio/bin"
