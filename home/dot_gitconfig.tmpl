@@ -17,6 +17,7 @@
     dlog = -c diff.external=difft log --ext-diff
     dshow = -c diff.external=difft show --ext-diff
     ddiff = -c diff.external=difft diff
+    diff-kicad = "difftool -t diff-kicad"
 
 [init]
 	defaultBranch = main
@@ -34,3 +35,11 @@
 
 [diff "plist"]
     textconv = plutil -convert xml1 -o -
+
+[difftool "diff-kicad"]
+    cmd = ~/.local/bin/diff-kicad $LOCAL $REMOTE
+
+[guitool "diff-kicad"]
+    cmd = git difftool -y -t diff-kicad $FILENAME
+    noconsole = yes
+    needsfile = yes
